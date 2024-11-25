@@ -38,7 +38,20 @@ body {
     100% {
       left: 100%;
     }
+  }
+ .logo-container {
+    margin-top: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Adjust spacing above the logo */
+  }
   
+  .logo {
+    width: 15vw; /* Resize as needed */
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%;
   }
   .hero-section {
     display: flex;
