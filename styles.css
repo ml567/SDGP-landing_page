@@ -197,3 +197,202 @@ body {
   .contact-section a.instagram {
     color: #c13584;
   }
+  :root {
+    --primary-color: #FF69B4;
+    --secondary-color: #F4C6D7;
+    --background-color: #FFF0F5;
+    --text-color: #333;
+    --white: #FFFFFF;
+    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    line-height: 1.6;
+    color: var(--text-color);
+    overscroll-behavior-x: none;
+}
+
+.features-header {
+    text-align: center;
+    padding: 2.5rem;
+    position: relative;
+}
+
+
+.features-header-content {
+    position: relative;
+    z-index: 1;
+}
+
+.features-header h1 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.features-header p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
+.features-scroll-container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc(300px - 1.5rem);
+    gap: 1.5rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    padding: 2rem;
+    background-color: var(--background-color);
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary-color) var(--white);
+}
+
+.features-scroll-container::-webkit-scrollbar {
+    height: 12px;
+}
+
+.features-scroll-container::-webkit-scrollbar-track {
+    background: var(--white);
+}
+
+.features-scroll-container::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+}
+
+.feature-item {
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.feature-item:hover::before {
+    opacity: 1;
+}
+
+.feature-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.12);
+    border-color: var(--primary-color);
+}
+
+.feature-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover .feature-icon {
+    transform: rotate(360deg) scale(1.1);
+}
+
+.feature-title {
+    font-weight: 700;
+    color: black;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    transition: color 0.3s ease;
+}
+
+.feature-item:hover .feature-title {
+    color: var(--primary-color);
+}
+
+.feature-description {
+    font-size: 1rem;
+    color: #666;
+    flex-grow: 1;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .features-scroll-container {
+        grid-auto-columns: calc(100% - 1rem);
+    }
+
+    .features-header h1 {
+        font-size: 2.25rem;
+    }
+
+    .features-header p {
+        font-size: 1rem;
+    }
+}
+
+/* Accessibility and Focus Styles */
+.feature-item:focus-within {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 5px;
+}
+
+.feature-item:hover,
+.feature-item:focus-within {
+    z-index: 10;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .feature-item,
+    .feature-item::before,
+    .feature-icon,
+    .feature-title {
+        transition: none;
+    }
+}
+
+/* Scroll Hint */
+.scroll-hint {
+    position: absolute;
+    right: 2rem;
+    bottom: 0.5rem;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.scroll-hint span {
+    animation: scroll-hint 1.5s infinite alternate;
+}
+
+@keyframes scroll-hint {
+    from { transform: translateX(0); }
+    to { transform: translateX(10px); }
+}
