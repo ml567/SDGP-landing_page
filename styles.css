@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    height: 100vh;
     font-family: 'Arial', sans-serif;
     background: radial-gradient(circle, #F8BBD0 0%, #F4C6D7 50%, #F1A7C8 100%);
     color: #333;
@@ -44,7 +43,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Adjust spacing above the logo */
+    
   }
   
   .logo {
@@ -54,10 +53,10 @@ body {
     border-radius: 50%;
   }
   .hero-section {
-    display: flex;
+    display: absolute;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 50vh;
     text-align: center;
     padding: 2vh;
   }
@@ -132,8 +131,7 @@ body {
   color: white;
   padding: 8px 12px;
   border-radius: 4px;
-  font-size: 14px;
-  white-space: nowrap;
+  font-size: 12px;
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.3s ease;
@@ -157,8 +155,8 @@ body {
   }
 
   .team-member {
-    width: 10vw;
-    height: 25vh;
+    width: 25%;
+    height: 15%;
     margin: 10px;
     margin-top: 2vh;
     border-radius: 10px;
@@ -174,7 +172,8 @@ body {
   }
   .team-member img{
     width: 70%;
-    height: 60%;
+    height: auto;
+
   }
 
   .contact-section {
@@ -196,6 +195,10 @@ body {
 
   .contact-section a.instagram {
     color: #c13584;
+  }
+
+  .contact-section a.facebook{
+    color: #282bd9;
   }
   :root {
     --primary-color: #FF69B4;
@@ -396,3 +399,22 @@ body {
     from { transform: translateX(0); }
     to { transform: translateX(10px); }
 }
+.cta-button-container{
+  margin-top: 25px;
+}
+.cta-button {
+  padding: 15px 30px;
+  background-color: #d53384ac;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+  background-color: #701d49;
+  transform: translateY(-2px);
+}
+
